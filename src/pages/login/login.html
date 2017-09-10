@@ -1,0 +1,56 @@
+<!-- <ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>HOLA</ion-title>
+  </ion-navbar>
+</ion-header> -->
+<ion-content padding>
+	<div text-center margin-top>
+		<img width="100" src="assets/iCime.png"/>
+	</div>
+	<div padding-left padding-right>
+		<h4 class="icolor3 no-border" margin-top>Iniciar Sesión</h4>
+		<form [formGroup]="loginForm" (submit)="loginUser()" novalidate >
+			<ion-list no-padding> 
+				<ion-item no-padding>
+					<ion-label floating>Correo Electrónico</ion-label>
+					<ion-input type="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid  &&  loginForm.controls.email.dirty"></ion-input>
+				</ion-item>
+				<ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+					<p>
+						El correo electrónico no es valido
+					</p>
+				</ion-item>
+				<ion-item no-padding>
+					<ion-label floating>Contraseña</ion-label>
+					<ion-input type="password" formControlName="password" ></ion-input>
+				</ion-item>
+				<ion-item class="error-message" *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+					<p>
+						La contraseña no es valido
+					</p>
+				</ion-item>
+			</ion-list>
+			<ion-grid no-padding>
+				<ion-row margin-bottom>
+					<ion-col col-12>
+						<a class="icolor3" >¿Olvidaste tu contraseña?</a>
+					</ion-col>
+				</ion-row>
+				<ion-row no-padding>
+					<ion-col col-12>
+						<button ion-button  round block class="ibutton" type="submit"  [disabled]="!loginForm.valid" >Ingresar</button>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</form>
+		<ion-item no-padding  class="no-border">
+			<h6 text-center padding-top>
+				¿No tienes una Cuenta?<br>
+				<a (click)="createAccount()" >Registrate Ahora </a> 
+			</h6>
+		</ion-item>
+	</div>
+</ion-content>
