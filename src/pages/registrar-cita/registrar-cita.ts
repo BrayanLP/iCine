@@ -12,7 +12,7 @@ import { AuthProvider } from '../../providers/auth';
 })
 export class RegistrarCitaPage {
   // especialidades: FirebaseListObservable<any[]>;  
-  public especialidades : any;
+  public especialidades = [];
   citaForm:FormGroup;
 
   constructor(
@@ -35,6 +35,11 @@ export class RegistrarCitaPage {
     console.log('ionViewDidLoad RegistrarCita');
   }
   registrarCita(){
+    // let idEspecialidad = this.citaForm.value.especialidad;
+    // let nombreEspecialidad = '';
+    // this.authData.getEspecialidadesId(idEspecialidad).on('value', data => {
+      // nombreEspecialidad = data.val()
+    // })
     var obj ={
       'd':this.citaForm.value.doctor,
       'e':this.citaForm.value.especialidad,
@@ -46,8 +51,19 @@ export class RegistrarCitaPage {
     // this.authData.crear('usuarios'+ ,obj);
   }
   getEspecialidades(){ 
-    this.authData.getEspecialidades().on('value', data => {
-      this.especialidades = data.val(); 
+    this.authData.getEspecialidades().on('value', data => { 
+      if(data.val() != undefined){
+        this.especialidades = [];
+        Object.keys(data.val()).forEach((element) => { 
+            let nombre = data.val()[element];
+            let id = element;
+            let obj = {
+              id: id,
+              nombre: nombre
+            }
+            this.especialidades.push(obj); 
+        });
+      }
     });
   }
 

@@ -42,6 +42,9 @@ import firebase from 'firebase/app';
     getEspecialidades(){  
       return this.afDB.database.ref('/especialidades');
     }
+    getEspecialidadesId(id){  
+      return this.afDB.database.ref('/especialidades').child(id);
+    }
     registrarCita(url, obj){
       let temp_citas = {};
       let temp_usuario = {};

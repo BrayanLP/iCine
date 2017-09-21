@@ -23,13 +23,15 @@ export class CitasPage {
   }
   getCitas(){
     this.authData.getUsuarioCitas().on('value', data => {
-      Object.keys(data.val()).forEach(element => { 
-        this.authData.getCitas(element).on('value', response => { 
-          let res = response.val();
-          this.citas.push(res);
-          console.log(this.citas);
-        })  
-      });
+      if(data.val() != undefined ){
+        Object.keys(data.val()).forEach(element => { 
+          this.authData.getCitas(element).on('value', response => { 
+            let res = response.val();
+            this.citas.push(res);
+            console.log(this.citas);
+          })  
+        });
+      }
     });
   }
 
