@@ -50,7 +50,7 @@ export class LoginPage {
           this.mensaje('La contraseña es requerida');  
         }
         else{
-          this.mensaje('Error Desconocido contacte a brayanlp@grupoaizen.com');
+          this.mensaje('Error desconocido contacte a brayanlp@grupoaizen.com');
         }
         
   		} else {
@@ -74,6 +74,7 @@ export class LoginPage {
   			}); 
   		}
   	}
+    
   	goToResetPassword(){
 	  	this.navCtrl.push('ResetPasswordPage');
   	}

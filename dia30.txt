@@ -1,0 +1,242 @@
+<table class="centered" style="width: 100% !important">
+								<thead>
+									<tr>
+										<th style="width: 150px;">Sal&oacute;n</th>
+										<!-- <th style="width: 10% !important;"><span style="opacity: 0;">h</span></th> -->
+										<th colspan="2">OLLANTAYTAMBO</th>
+										<th>PISAQ</th>
+										<th>SACSAYHUAMAN</th>
+										<th>TIPÓN</th>
+										<th>QENQO</th>
+									</tr>
+								</thead>
+								<tbody><!-- <tr> 
+																								<td>Capacidad</td> 
+																								<td>350</td>
+																								<td>300</td>
+																								<td>100</td>
+																								<td>80</td>
+																								<td>50</td>
+																							</tr>  --><!-- <tr>
+																	<td>Capacidad</td> 
+																	<td style="width: 120px !important;background: #4e0800;color: #fff;">Sala 1 (650)</td>
+																	<td style="background: #4e0800;color: #fff;">350</td>
+																	<td style="background: #4e0800;color: #fff;" rowspan="">300</td>
+																	<td style="background: #4e0800;color: #fff;" rowspan="">100</td>
+																	<td style="background: #4e0800;color: #fff;" rowspan="">80</td>
+																	<td style="background: #4e0800;color: #fff;" rowspan="">50</td>
+																</tr> -->
+									<tr>
+										<td></td>
+										<td colspan="2"  class="ejes">Eje temático: <br><b>AGRICULTURA, SOSTENIBILIDAD Y SEGURIDAD ALIMENTARIA</b> </td>
+										<td  class="ejes">Eje temático: <br><b>NUTRICIÓN PÚBLICA Y  MEDIO AMBIENTE</b></td>
+										<td  class="ejes">Eje temático:<br> <b>AVANCES EN INVESTIGACIÓN  NUTRICIONAL</b></td>
+										<td></td>
+										<td></td>
+									</tr> 
+									<tr>
+										<td>8:30 a 9:00 am</td>
+										<td colspan="2">
+
+											<b>Gestión participativa para la promoción del consumo de frutas. </b>
+											<br>Mg. Norma Alfaro - GUATEMALA 
+										</td>
+										<td>
+											<b>Perspectiva de los destinatarios sobre el funcionamiento de un programa de comedores comunitarios.</b> <br>Mg. Verónica Risso Patrón - ARGENTINA  
+										</td>
+										<td rowspan=""><b>Neurobiolog&iacute;a de la nutrici&oacute;n.</b><br />
+										Dra Edna Nava - M&Eacute;XICO</td>
+										<td rowspan="4"><b>Taller Especializado en Nutrici&oacute;n Pedi&aacute;trica.</b><br />
+										Asociaci&oacute;n de Nutricionistas Pedi&aacute;tricos (ASNUPE)</td>
+										<td rowspan="4">
+											<b>Taller Especializado en Terapéutica Nutricional. </b>
+											<br>Instituto de Investigación para el Desarrollo de la Nutriología<br> (IIDENUT)
+										</td>
+									</tr>
+									
+									<tr>
+										<td>9:00 a 9:30 am</td>
+										<td  colspan="2">
+											<b>Plan Nacional de Vigilancia y Control de Residuos de Contaminantes en los Alimentos: Caso Ecuador. </b><br> Mg. Rommel Betancourt - ECUADOR 
+										</td>
+										<td>
+											<b>Adherencia del paciente con enfermedad crónica al tratamiento nutricional. </b> <br>Mg. Luisa Saravia - URUGUAY 
+										</td>
+										<td colspan=""><b>El vegetarianismo y la sostenibilidad ambiental: &quot;M&aacute;s all&aacute; del h&aacute;bito&quot;.</b><br />
+										Mg. Jhon Jairo Bejarano - COLOMBIA</td>
+									</tr>
+									<tr>
+										<td>9:30 a 10:00 am</td>
+										<td colspan="2">
+											<b>Desafíos en la defensa del derecho del agua, alimentación y salud. </b> <br>Lic. Luisa Paiva - ARGENTINA
+										</td>
+										<td>
+											<b>Objetivos de desarrollo sostenible y el cierre de brechas en la niñez.</b>  <br> Mg. Carlos Rojas - PERÚ 
+										</td>
+										<td>
+											<b>Consumo de carnes rojas y embutidos: que pesa más, las deficiencias nutricionales o la asociación con algunas enfermedades. </b> <br>PhD. Yadyra Cortes - COLOMBIA 
+										</td>
+									</tr>
+									<tr>
+										<td>10:00 a 10:30 am</td>
+										<td colspan="2"><p><b>Career restructuring for a new you.</b><br />
+										Sylvia Escott-Stump, MA, RDN, LDN, FAND - EE.UU.&nbsp;</p>
+										</td>
+										<td>
+											<b>Modernización de la Nutrición en Iberoamérica: en IbMN necesitamos tu colaboración.</b>  <br>Mg. José Santos - ESPAÑA
+										</td>
+										<td><p><b>Envejecimiento saludable, la clave de la longevidad.</b><br />
+										Mg. Sonia Ivankobich - COSTA RICA</p>
+										</td>
+									</tr>
+									<tr>
+										<td>10:30 a 11:00 am</td>
+										<td colspan="6" style="background: #177f79;color: #fff;">COFFEE BREAK</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td colspan="2"  class="ejes">Eje temático: <br><b>NUTRICIÓN Y ENFERMEDAD</b></td>
+										<td  class="ejes">Eje temático:<br><b> ALIMENTOS FUNCIONALES Y COMPONENTES BIOACTIVOS </b></td>
+										<td  class="ejes">Eje temático:<br><b> COMPETENCIAS DEL PROFESIONAL NUTRICIONISTA EN EL PERÚ E IBEROAMÉRICA</b></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>11:00 a 11:30 am</td>
+										<td colspan="2">
+											<b>Defectos congénitos por deficiencias de nutrientes.  </b> <br>Dra. Maria Fajardo - PERÚ 
+										</td> 
+										<td rowspan="3">
+											<b>Mesa Redonda: Alimentos funcionales y componentes bioactivos.</b> <br>Sociedad Peruana de Nutrición (SOPENUT)
+										</td>
+										<td rowspan="3">
+											<b>Mesa redonda: Situación y perspectivas en la formación de recursos humanos en Nutrición en la región de Iberoamérica. </b> <br>Asociación Iberoamericana de Facultades y Escuelas de Nutrición (AIFEN). 										
+										</td>
+										<td rowspan="3"><b>Taller Especializado en Nutrici&oacute;n Pedi&aacute;trica.</b><br />
+										Asociaci&oacute;n de Nutricionistas Pedi&aacute;tricos (ASNUPE)</td>
+										<td rowspan="3">
+											<b>Taller Especializado en Terapéutica Nutricional.</b><br> Instituto de Investigación para el Desarrollo de la Nutriología<br> (IIDENUT)
+										</td>
+									</tr>
+									<tr>
+										<td>11:30 a 12:00 m</td>
+										<td colspan="2">
+											<b>Meta calórica óptima durante la injuria. </b><br>Lic. Eduardo Lobatón - PERÚ
+										</td>
+									</tr>
+									<tr>
+										<td>12:00 a 12:30 pm</td>
+										<td colspan="2">
+											<b>Abordaje nutricional del niño con HIV+ y SIDA.</b> <br>Mg. Myriam De León - URUGUAY 
+										</td>
+									</tr>
+									<tr>
+										<td>12:30 a 2:00 pm</td>
+										<td colspan="6" style="background: #177f79;color: #fff;">TIEMPO PARA EL ALMUERZO</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td colspan="2"  class="ejes">Eje temático:<br><b> NUTRICIÓN Y CICLO  DE VIDA</b> </td>
+										<td  class="ejes">Eje temático: <br><b>NUTRICIÓN PÚBLICA Y  MEDIO AMBIENTE</b></td>
+										<td  class="ejes">Eje temático: <br><b>ALIMENTOS FUNCIONALES Y COMPONENTES BIOACTIVOS</b> </td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>2:00 a 2:30 pm</td>
+										<td colspan="2"><b>Programas de educaci&oacute;n alimentaria en escuelas.</b><br />
+										Lic. Alberto Arribas - ARGENTINA</td>
+										<td><b>Iniciativas nacionales para un programa de alimentaci&oacute;n laboral.</b><br />
+										Lic. Paolo Castro - CHILE</td>
+										<td><b>
+											<b>SmartFood: Nano y microencapsulación de compuestos bioactivos.</b> <br>Dr. Pedro Prieto - ESPAÑA
+										</td>
+										<td rowspan="4"><b>Taller Especializado en Gestión en Servicios de Alimentación.</b> <br>Altos Estudios de la Alimentación y Nutrición (ALESAN)
+</td>
+										<td rowspan="4">
+											<b>Reunión del Comité de Nutricionistas  del Mercosur CONUMER</b>
+										</td>
+									</tr>
+									<tr>
+										<td>2:30 a 3:00pm</td>
+										<td colspan="2">
+											<b>Imagen corporal y su relación  con la alimentación y el estado nutricional de la gestante. </b><br> Mg. Rocío Gonzalez - COSTA RICA
+										</td>
+										<td><b>Herramientas de educaci&oacute;n alimentaria basadas en evidencia cient&iacute;fica.</b><br />
+										Dr. Giuseppe Russolillo - ESPA&Ntilde;A</td>
+										<td>
+											<b>Mecanismos íntimos de alimentos funcionales: chocolate y vino.</b> <br>Dr. Alejandro Hidalgo - MÉXICO
+										</td>
+									</tr>
+									<tr>
+										<td>3:00 a 3:30 pm</td>
+										<td colspan="2">
+											<b>Adulto mayor: Alimentación, sueño y calidad de vida.</b><br>  PhD. Samuel Durán - CHILE
+										</td>
+										<td><b>Educaci&oacute;n alimentaria y nutricional en el derecho a la alimentaci&oacute;n.</b><br />
+										Lic. Luisa Paiva - ARGENTINA</td>
+										<td>
+											<b>Transformaciones físico-químicas de los alimentos en la gastronomía saludable.</b> <br>Mg. Virginia Nareto - URUGUAY
+										</td>
+									</tr>
+									<tr>
+										<td>3:30 a 4:00 pm</td>
+										<td colspan="2"><b>T&eacute;cnicas para mejorar la intervenci&oacute;n nutricional.</b><br />
+										Mg. Saby Camacho - M&Eacute;XICO</td>
+										<td><b>Monitoreo de ambientes alimentarios en Centroam&eacute;rica. </b><br />
+										Lic. Carmen S&aacute;nchez - GUATEMALA</td>
+										<td>
+											<b>La alianza cocinero-campesino del Perú: auge gastronómico, articulación a mercados  y comercialización agraria. </b> <br>Mg. Luis Ginocchio - PERÚ
+										</td>
+										
+									</tr>
+									<tr>
+										<td>4:00 a 4:30 pm</td>
+										<td colspan="7" style="background: #177f79;color: #fff;">COFFEE BREAK</td>
+									</tr>
+									<tr>
+										<td></td>
+										<td colspan="2"  class="ejes">Eje temático: <br><b>COMPETENCIAS DEL PROFESIONAL NUTRICIONISTA EN EL PERÚ Y RESTO DEL MUNDO</b></td>
+										<td  class="ejes">Eje temático: <br><b>MARKETING Y  COMUNICACIÓN EN NUTRICIÓN</b> </td>
+										<td  class="ejes">Eje temático: <br><b>NUTRICIÓN PÚBLICA Y MEDIO AMBIENTE</b></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>4:30 a 5:00 pm</td>
+										<td colspan="2">
+											<b>INCAP VIRTUAL: Un punto de encuentro para la especialización de Nutricionistas en la región y más allá.</b>  <br>Mg. Norma Alfaro - GUATEMALA 
+										</td>
+										<td>
+											<b>Coaching y liderazgo en el posicionamiento profesional.</b> <br>Mg. Sandra Blasi - ARGENTINA 
+										</td>
+										<td><b>Inseguridad Alimentaria y nutricional de la ciudad de Lima </b> <br>Mg. Oscar Aquino - PERÚ </td>
+										<td rowspan="3"><b>Taller Especializado en Gestión en Servicios de Alimentación. </b> <br>Altos Estudios de la Alimentación y Nutrición (ALESAN)
+</td>
+										<td rowspan="3">
+											<b>Reunión de la Confederación Latinoamericana y del Caribe de Dietistas y Nutricionistas CONFELANYD <br>Agenda: Próximo Congreso Latinoamericano y del Caribe de Nutrición - Lima 2018</b>  
+										</td>
+									</tr>
+									<tr>
+										<td>5:00 a 5:30 pm</td>
+										<td colspan="2" rowspan="2">
+											<b>ICDA Strategic Plan: Promoting common ground for Dietitians-nutritionists profession around the world.</b><br> Marsha Sharp, MSc, RD - CANADÁ 
+										</td>
+										<td>
+											<b>Nutricoaching como una estrategia para bajar de peso.</b><br>  Mg. Marcia Fidelix - BRASIL 
+										</td>
+										<td><b>Anemia en el Perú: Experiencia del uso de multimicronutrientes.</b>  <br>Mg. Olga Ramos - PERÚ </td>
+									</tr>
+									<tr>
+										<td>5:30 a 6:00 pm</td>
+										<td colspan=""><b style="color: rgb(32, 162, 154); text-align: center;">Piensa antes de tweetear: redes sociales y comunicaci&oacute;n en nutrici&oacute;n.</b><br style="text-align: center;" />
+										<span style="text-align: center;">Mg. Saby Camacho - M&Eacute;XICO</span></td>
+										 
+										<!-- <td><b>Mitos y realidades de las grasas para el manejo de las Enfermedades Cardiovasculares (ECV).</b><br> PhD. Yadira Cortes - COLOMBIA </td> -->
+									</tr>
+									<tr>
+										<td>6:00 pm</td>
+										<td colspan="7" style="background: #177f79;color: #fff;">CEREMONIA DE CLAUSURA</td>
+									</tr>
+								</tbody>
+							</table>

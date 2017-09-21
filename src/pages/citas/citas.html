@@ -1,0 +1,11 @@
+<ion-content padding>
+<h1>HOLA ESTOY EN CITAS</h1>
+{{citas}}
+<div *ngFor="let cita of citas">
+    Doctor: {{cita.d}}<br>
+    Especialidad: {{cita.e}}<br>
+    Fecha: {{cita.f}}<br>
+    Hora: {{cita.h}}<br>
+    <hr>
+</div>
+</ion-content>

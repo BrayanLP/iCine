@@ -4,7 +4,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-// import { ListPage } from '../pages/list/list';
+
+import { CitasPage } from '../pages/citas/citas';
+import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
+
+
 import { LoginPage } from '../pages/login/login';
 // import { SignupPage } from '../pages/signup-page/signup-page';
 
@@ -30,11 +34,16 @@ const config = {
     MyApp,
     HomePage,
     // SignupPage,
-    LoginPage
+    LoginPage,
+    CitasPage,
+    RegistrarCitaPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      monthNames: ['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre']
+
+    }),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFireDatabaseModule
@@ -44,7 +53,9 @@ const config = {
     MyApp,
     HomePage,
     // SignupPage,
-    LoginPage
+    LoginPage,
+    CitasPage,
+    RegistrarCitaPage
   ],
   providers: [
     StatusBar,

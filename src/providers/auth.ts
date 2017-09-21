@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'; 
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth'; 
+// import { AngularFire } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import firebase from 'firebase/app';
 /*
   Generated class for the Auth provider.
@@ -9,10 +10,9 @@ import firebase from 'firebase/app';
   for more info on providers and Angular DI.
   	*/
   @Injectable()
-  export class AuthProvider {
-
-  	constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) {
-  		// console.log('Hello Auth Provider');
+  export class AuthProvider { 
+    especialidades: FirebaseListObservable<any[]>;
+  	constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) { 
   	}
   	loginUser(newEmail: string, newPassword: string): firebase.Promise<any> {
   		return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
@@ -39,6 +39,27 @@ import firebase from 'firebase/app';
       }; 
       return this.afDB.database.ref('usuarios').child(this.afAuth.auth.currentUser.uid).set(obj);
     }
+    getEspecialidades(){  
+      return this.afDB.database.ref('/especialidades');
+    }
+    registrarCita(url, obj){
+      let temp_citas = {};
+      let temp_usuario = {};
+      let key = this.afDB.database.ref(url).push().key;
+      let citas = this.afDB.database.ref(url);
+      let usuario = this.afDB.database.ref('usuarios').child(this.afAuth.auth.currentUser.uid+'/citas');
+      temp_citas[key] = obj; 
+      citas.update(temp_citas);
+      temp_usuario[key] = true; 
+      usuario.update(temp_usuario); 
+    }
+    getUsuarioCitas(){
+      return this.afDB.database.ref('usuarios').child(this.afAuth.auth.currentUser.uid+'/citas');
+    }
+    getCitas(id){
+      return this.afDB.database.ref('citas').child(id);
+    }
+
     logoutUser(): firebase.Promise<any> {
       return this.afAuth.auth.signOut();
     }

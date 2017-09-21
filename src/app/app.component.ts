@@ -3,8 +3,10 @@ import { Platform } from 'ionic-angular';
 
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
+import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
 // import { SignupPage } from '../pages/signup-page/signup-page';
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -28,8 +30,8 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage }
-      // { title: 'List', component: ListPage },
+      { title: 'Home', component: HomePage },
+      { title: 'Registrar cita', component: RegistrarCitaPage }
       // { title: 'Login', component: LoginPage }
     ];
     this.state();
@@ -73,9 +75,9 @@ export class MyApp {
   //   });
   // }
 
-  // openPage(page) {
-  //   // Reset the content nav to have just this page
-  //   // we wouldn't want the back button to show in this scenario
-  //   this.nav.setRoot(page.component);
-  // }
+  openPage(page) {
+    // Reset the content nav to have just this page
+    // we wouldn't want the back button to show in this scenario
+    this.rootPage = page.component;
+  }
 }
