@@ -13,100 +13,104 @@ import { LetrasValidator } from '../../validators/letras';
 
 @IonicPage()
 @Component({
-  selector: 'page-signup',
-  templateUrl: 'signup.html',
+  selector: 'page-doctores',
+  templateUrl: 'doctores.html',
 })
-export class SignupPage {
-  public signupForm:FormGroup;
+export class DoctoresPage {
+  public doctoresForm:FormGroup;
   public loading:Loading; 
-  // emailRegex: any = '/^[a-zA-Z\_\- ]*$/';
-   
-  constructor(public nav: NavController, public authData: AuthProvider, 
-    public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
-    public alertCtrl: AlertController) {
-
-    // var obj = [{ email: this.signupForm.value.email, amat: this.signupForm.value.amaterno, apat: this.signupForm.value.aparterno, naci: this.signupForm.value.fecha, nom: this.signupForm.value.nombre, full: this.signupForm.value.nombre +" "+ this.signupForm.value.apaterno }];
-    this.signupForm = formBuilder.group({
+  public especialidades = [];
+  constructor(
+    public nav: NavController, 
+    public authData: AuthProvider, 
+    public formBuilder: FormBuilder, 
+    public loadingCtrl: LoadingController, 
+    public alertCtrl: AlertController
+  ){
+    this.doctoresForm = formBuilder.group({
       email: ['', Validators.compose([Validators.required, EmailValidator.isValid])],
       password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
       nombre: ['', Validators.compose([Validators.minLength(1), Validators.required, LetrasValidator.isValid])],
       apaterno: ['', Validators.compose([Validators.minLength(2), Validators.required, LetrasValidator.isValid])],
       amaterno: ['', Validators.compose([Validators.minLength(2), Validators.required, LetrasValidator.isValid])],
       gene: ['', Validators.compose([Validators.required])],
+      especialidad: ['', Validators.compose([Validators.required])],
       fecha: ['', Validators.compose([Validators.required])]
 
     });
+    this.getEspecialidades(); 
   }
 
-  /**
-   * If the form is valid it will call the AuthData service to sign the user up password displaying a loading
-   *  component while the user waits.
-   *
-   * If the form is invalid it will just log the form value, feel free to handle that as you like.
-   */
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad DoctoresPage');
+  }
   signupUser(){
-    let email = this.signupForm.value.email;
-    let password = this.signupForm.value.password;
-    let nombre = this.signupForm.value.nombre;
-    let aPaterno = this.signupForm.value.apaterno;
-    let aMaterno = this.signupForm.value.amaterno;
-    let gene = this.signupForm.value.gene;
-    let fecha = this.signupForm.value.fecha; 
-    let rol = "paciente";
+    let email = this.doctoresForm.value.email;
+    let password = this.doctoresForm.value.password;
+    let nombre = this.doctoresForm.value.nombre;
+    let apaterno = this.doctoresForm.value.apaterno;
+    let amaterno = this.doctoresForm.value.amaterno;
+    let gene = this.doctoresForm.value.gene;
+    let fecha = this.doctoresForm.value.fecha;
+    let especialidad = this.doctoresForm.value.especialidad;
+    let rol = "doctor";
+    
     this.loading = this.loadingCtrl.create({
       dismissOnPageChange: true,
     });
     this.loading.present();
-    if (!this.signupForm.valid){
-      // console.log(this.signupForm.value);
+    if (!this.doctoresForm.valid){
       if(
         email === "" && 
         password === "" &&
         nombre === "" &&
-        aPaterno === "" &&
-        aMaterno === "" &&
+        apaterno === "" &&
+        amaterno === "" &&
         gene === "" &&
-        fecha === ""){ 
+        fecha === "" &&
+        especialidad === ""
+      ){ 
         this.mensaje('El Correo electrónico, la Contraseña, Nombre, Apellido Paterno y Materno, Genero y Fecha de Nacimiento son requeridos');
       }
-      else if(this.signupForm.value.email === ""){
+      else if(email === ""){
         this.mensaje('El correo electrónico es requerido');
       }
-      else if(this.signupForm.value.password === ""){ 
+      else if(password === ""){ 
         this.mensaje('La contraseña es requerida');  
       }
-      else if(this.signupForm.value.nombre === ""){ 
+      else if(nombre === ""){ 
         this.mensaje('El Nombre es requerido');  
       }
-      else if(this.signupForm.value.apaterno === ""){ 
+      else if(apaterno === ""){ 
         this.mensaje('El Apellido Paterno es requerido');  
       }
-      else if(this.signupForm.value.amaterno === ""){ 
+      else if(amaterno === ""){ 
         this.mensaje('El Apellido Materno es requerido');  
       }
-      else if(this.signupForm.value.gene === ""){ 
+      else if(gene === ""){ 
         this.mensaje('El Genero es requerido');  
       }
-      else if(this.signupForm.value.fecha === ""){ 
+      else if(fecha === ""){ 
         this.mensaje('La Fecha es requerida');  
       }
       else{
         this.mensaje('Error Desconocido contacte a brayanlp@grupoaizen.com');
       }
     } else {
-      this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
+      this.authData.signupUser(email, password)
       .then(() => {
         let obj = {
           c: email,
-          am: aMaterno,
-          ap: aPaterno,
-          f: fecha,
+          am : amaterno,
+          ap : apaterno,
           n: nombre,
-          n_f: nombre +" "+ aPaterno,
-          rol: rol,
-          g: gene
-        };
-        this.authData.setUser(obj);
+          f: fecha,
+          g: gene,
+          n_f: nombre +" "+ apaterno,
+          e: especialidad,
+          rol: rol
+        }
+        this.authData.setDoctor(obj);
         this.nav.setRoot(HomePage);
       }, (error :any) => { 
         if(error.code === "auth/email-already-in-use"){
@@ -137,4 +141,20 @@ export class SignupPage {
       alert.present();
     });  
   }
-}    
+  getEspecialidades(){ 
+    this.authData.getEspecialidades().on('value', data => { 
+      if(data.val() != undefined){
+        this.especialidades = [];
+        Object.keys(data.val()).forEach((element) => { 
+            let nombre = element;
+            let id = element;
+            let obj = {
+              id: id,
+              nombre: nombre
+            }
+            this.especialidades.push(obj); 
+        });
+      }
+    });
+  }
+}

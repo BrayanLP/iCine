@@ -1,7 +1,10 @@
-<ion-header> 
+<ion-header>
   <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Registrar cita</ion-title>
-  </ion-navbar> 
+  </ion-navbar>
 </ion-header>
 
 
@@ -11,41 +14,50 @@
     <ion-list>
       <ion-item>
         <ion-label>Selecciona Especialidad</ion-label>
-        <ion-select formControlName="especialidad">
-          <ion-option *ngFor="let especialidad of especialidades" [value]="especialidad.id" >{{especialidad.nombre}}</ion-option> 
+        <ion-select
+        formControlName="especialidad"
+        [class.invalid]="!citaForm.controls.especialidad.valid  &&  citaForm.controls.especialidad.dirty"
+        (ngModelChange)="cambioEspecialidad($event)">
+          <ion-option *ngFor="let especialidad of especialidades" [value]="especialidad.id">{{especialidad.nombre}}</ion-option>
         </ion-select>
       </ion-item>
     </ion-list>
 
     <ion-item>
       <ion-label>Date</ion-label>
-      <ion-datetime displayFormat="DD MMMM YYYY" min="2017" max="2017" formControlName="fecha">
+      <ion-datetime
+      displayFormat="DD MMMM YYYY"
+      [min]="minDate"
+      formControlName="fecha"
+      (ngModelChange)="onChange($event)"
+      [class.invalid]="!citaForm.controls.fecha.valid  &&  citaForm.controls.fecha.dirty">
       </ion-datetime>
     </ion-item>
-
     <ion-item>
       <ion-label>Hora</ion-label>
-      <ion-datetime displayFormat="h:mm A" min="2017" max="2017" formControlName="hora">
+      <ion-datetime
+      displayFormat="hh:mm A"
+      pickerFormat="hh:mm"
+      minuteValues="0, 30"
+      hourValues="09,10,11,12,13,14,15,16,17"
+      formControlName="hora"
+      (ngModelChange)="cambioHora($event)"
+      [class.invalid]="!citaForm.controls.hora.valid  &&  citaForm.controls.hora.dirty">
       </ion-datetime>
     </ion-item>
 
     <ion-list>
       <ion-item>
         <ion-label>Selecciona Doctor</ion-label>
-        <ion-select formControlName="doctor" >
-          <ion-option value="nes">NES
-            <ion-img width="80" height="80" src="assets/iCime.png"></ion-img>
-          </ion-option>
-          <ion-option value="n64">Nintendo64</ion-option>
-          <ion-option value="ps">PlayStation</ion-option>
-          <ion-option value="genesis">Sega Genesis</ion-option>
-          <ion-option value="saturn">Sega Saturn</ion-option>
-          <ion-option value="snes">SNES</ion-option>
+        <ion-select
+        formControlName="doctor"
+        [class.invalid]="!citaForm.controls.doctor.valid  &&  citaForm.controls.doctor.dirty">
+          <ion-option *ngFor="let doctor of doctores" [value]="doctor.id" >{{doctor.nombre}}</ion-option>
         </ion-select>
       </ion-item>
       <ion-row no-padding>
         <ion-col col-12>
-          <button ion-button round block class="ibutton" type="submit">Registrar Cita</button>
+          <button ion-button round block class="ibutton" type="submit" [disabled]="!citaForm.valid">Registrar Cita</button>
         </ion-col>
       </ion-row>
     </ion-list>

@@ -7,6 +7,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
+import { DoctoresPage } from '../pages/doctores/doctores';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { InfoPage } from '../pages/info/info';
 // import { SignupPage } from '../pages/signup-page/signup-page';
 
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -15,27 +18,30 @@ import { AuthProvider } from '../providers/auth';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp { 
-  rootPage:any; 
+export class MyApp {
+  rootPage:any;
   pages = [];
 
-  constructor( 
+  constructor(
     public platform: Platform,
-    public afAuth: AngularFireAuth, 
-    public statusBar: StatusBar, 
+    public afAuth: AngularFireAuth,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen,
     public authData: AuthProvider
    ) {
-    
+
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Registrar cita', component: RegistrarCitaPage }
+      { title: 'Registrar cita', component: RegistrarCitaPage },
+      { title: 'Perfil', component: PerfilPage },
+      { title: 'Acerda de', component: InfoPage }
+      // { title: 'Doctores', component: DoctoresPage }
       // { title: 'Login', component: LoginPage }
     ];
     this.state();
-   
+
 
 
     platform.ready().then(() => {
@@ -59,9 +65,9 @@ export class MyApp {
   state(){
     this.afAuth.authState.subscribe( user => {
       if (user) {
-        this.rootPage = HomePage; 
+        this.rootPage = HomePage;
       } else {
-        this.rootPage = LoginPage; 
+        this.rootPage = LoginPage;
       }
     });
   }

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Perfil</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <img src="https://dummyimage.com/50x50/000/fff">
+  <ion-buttons>
+      <button ion-button icon-left (click)="presentActionSheet()">
+        <ion-icon name="camera"></ion-icon>Select Image
+      </button>
+      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+        <ion-icon name="cloud-upload"></ion-icon>Upload
+      </button>
+    </ion-buttons>
+  <form [formGroup]="perfilForm" (submit)="actualizar()" novalidate >
+    <ion-item no-padding>
+      <ion-label floating>Nombres</ion-label>
+      <ion-input type="text" formControlName="n"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Apellido Materno</ion-label>
+      <ion-input type="text" formControlName="am"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Apellido Paterno</ion-label>
+      <ion-input type="text" formControlName="ap"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Correo Electrónico</ion-label>
+      <ion-input type="email" formControlName="c"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Telefono</ion-label>
+      <ion-input type="tel" formControlName="t"></ion-input>
+    </ion-item>
+    <ion-item no-padding>
+      <ion-label floating>Genero</ion-label>
+      <ion-input type="text" formControlName="g"></ion-input>
+    </ion-item>
+  </form>
+</ion-content>

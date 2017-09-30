@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 // import { NavParams, NavController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth'; 
-import { Keyobject } from '../../pipes/objetos'; 
+// import { Keyobject } from '../../pipes/objetos'; 
   
 
 @Component({
@@ -22,17 +22,29 @@ export class CitasPage {
     console.log('ionViewDidLoad Citas');
   }
   getCitas(){
-    this.authData.getUsuarioCitas().on('value', data => {
-      if(data.val() != undefined ){
-        Object.keys(data.val()).forEach(element => { 
-          this.authData.getCitas(element).on('value', response => { 
+    this.authData.getUsuarioCitas().on('value', res => { 
+      if(res.val() != undefined){
+        this.citas = [];
+        Object.keys(res.val()).forEach(element => {  
+          this.authData.getCitasId(element).on('value', response => { 
             let res = response.val();
-            this.citas.push(res);
-            console.log(this.citas);
+            if(res != null ){ 
+              this.citas.push(res); 
+            }
+            else{
+              this.authData.getUsuarioCitas().child(element).remove(); 
+            }
           })  
         });
       }
+      else{
+        this.citas = [];
+        console.log("citas vacias");
+      }
     });
+  }
+  removeCita(id){
+
   }
 
 }

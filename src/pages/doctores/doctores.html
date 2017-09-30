@@ -1,0 +1,125 @@
+<ion-header> 
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Doctores</ion-title>
+  </ion-navbar> 
+</ion-header>
+
+
+<ion-content padding-left padding-right>
+    <form [formGroup]="doctoresForm" (submit)="signupUser()" novalidate >
+      <ion-list radio-group formControlName="gene"  [class.invalid]="!doctoresForm.controls.gene.valid  &&  doctoresForm.controls.gene.dirty">
+        <ion-grid>
+          <ion-row>
+            <h5 class="icolor3 no-border" no-padding>Datos de Cuenta</h5>
+            <ion-item no-padding> 
+              <ion-label floating> 
+                <ion-icon name="mail"></ion-icon> 
+                Correo electrónico
+              </ion-label>
+              <ion-input type="email" formControlName="email"  [class.invalid]="!doctoresForm.controls.email.valid  &&  doctoresForm.controls.email.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item class="error-message" *ngIf="!doctoresForm.controls.email.valid  && doctoresForm.controls.email.dirty">
+              <p>
+                El correo electrónico no es valido.
+              </p>
+            </ion-item> 
+
+            <ion-item no-padding> 
+              <ion-label floating> 
+                <ion-icon name="md-key"></ion-icon> 
+                Contraseña
+              </ion-label>
+              <ion-input type="password" formControlName="password" [class.invalid]="!doctoresForm.controls.password.valid  &&  doctoresForm.controls.password.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label>Selecciona Especialidad</ion-label>
+              <ion-select formControlName="especialidad">
+                <ion-option *ngFor="let especialidad of especialidades" [value]="especialidad.id" >{{especialidad.nombre}}</ion-option> 
+              </ion-select>
+            </ion-item> 
+            
+            <ion-item no-padding class="error-message" *ngIf="!doctoresForm.controls.password.valid  && doctoresForm.controls.password.dirty">
+              <p>
+                Contraseña debe ser mayor a 6 dígitos
+              </p>
+            </ion-item> 
+                   
+            <h5 class="icolor3 no-border" no-padding>Datos Personales</h5>
+            
+            <ion-item no-padding>
+              <ion-label floating>
+                <ion-icon name="ios-person"></ion-icon>
+                Nombre completo
+              </ion-label>
+              <ion-input type="text" formControlName="nombre" [class.invalid]="!doctoresForm.controls.nombre.valid  &&  doctoresForm.controls.nombre.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="error-message" *ngIf="!doctoresForm.controls.nombre.valid  && doctoresForm.controls.nombre.dirty">
+              <p>
+                Solo se permite letras.
+              </p>
+            </ion-item> 
+  
+            <ion-item no-padding>
+              <ion-label floating> 
+                <ion-icon name="md-male"></ion-icon>   
+                Apellido paterno
+              </ion-label>
+              <ion-input type="text" formControlName="apaterno"  [class.invalid]="!doctoresForm.controls.apaterno.valid  &&  doctoresForm.controls.apaterno.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="error-message" *ngIf="!doctoresForm.controls.apaterno.valid  && doctoresForm.controls.apaterno.dirty">
+              <p>
+                Solo se permite letras.
+              </p>
+            </ion-item> 
+  
+            <ion-item no-padding>
+              <ion-label floating>
+                <ion-icon name="md-female"></ion-icon> 
+                Apellido materno
+              </ion-label>
+              <ion-input type="text" formControlName="amaterno"  [class.invalid]="!doctoresForm.controls.amaterno.valid  &&  doctoresForm.controls.amaterno.dirty"></ion-input>
+            </ion-item>
+
+            <ion-item no-padding class="error-message" *ngIf="!doctoresForm.controls.amaterno.valid  && doctoresForm.controls.amaterno.dirty">
+              <p>
+                Solo se permite letras.
+              </p>
+            </ion-item> 
+
+            <ion-item col-6 no-padding margin-top>
+                <ion-label>Masculino</ion-label>
+                <ion-radio checked="true" value="m"></ion-radio>
+            </ion-item>
+
+            <ion-item col-6 no-padding margin-top>
+                <ion-label>Femenino</ion-label>
+                <ion-radio value="f"></ion-radio>
+            </ion-item>
+            <!-- <ion-item no-padding>
+              <ion-label floating>Telefono</ion-label>
+              <ion-input type="tel"></ion-input>
+            </ion-item> --> 
+              <ion-item no-padding>
+                <ion-label floating>
+                  <ion-icon name="md-calendar"></ion-icon> 
+                  Fecha Nacimiento
+                </ion-label>
+                <ion-datetime displayFormat="MM/DD/YYYY" formControlName="fecha"  [class.invalid]="!doctoresForm.controls.fecha.valid  &&  doctoresForm.controls.fecha.dirty"></ion-datetime>
+            </ion-item>
+          </ion-row>
+          <ion-row margin-top>
+            <ion-col col-12 no-padding>
+              <button ion-button  round full class="ibutton" type="submit" [disabled]="!doctoresForm.valid" >Registrar</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+    </form>
+  </ion-content>

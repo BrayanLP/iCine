@@ -1,12 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular'; 
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
 import { CitasPage } from '../pages/citas/citas';
 import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
+import { DoctoresPage } from '../pages/doctores/doctores';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { InfoPage } from '../pages/info/info';
 
 
 import { LoginPage } from '../pages/login/login';
@@ -19,6 +22,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 const config = {
   apiKey: "AIzaSyDHT3YE-PzJbCsYa-_swmVjtvhO_Jlid6Q",
@@ -33,10 +41,12 @@ const config = {
   declarations: [
     MyApp,
     HomePage,
-    // SignupPage,
     LoginPage,
     CitasPage,
-    RegistrarCitaPage
+    RegistrarCitaPage,
+    DoctoresPage,
+    PerfilPage,
+    InfoPage
   ],
   imports: [
     BrowserModule,
@@ -52,15 +62,21 @@ const config = {
   entryComponents: [
     MyApp,
     HomePage,
-    // SignupPage,
     LoginPage,
     CitasPage,
-    RegistrarCitaPage
+    RegistrarCitaPage,
+    DoctoresPage,
+    PerfilPage,
+    InfoPage
   ],
   providers: [
     StatusBar,
-    SplashScreen, 
+    SplashScreen,
     AuthProvider,
+    File,
+    Transfer,
+    Camera,
+    FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

@@ -1,6 +1,8 @@
 {
   "name": "iCime",
   "app_id": "ee3272c3",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
