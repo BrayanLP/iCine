@@ -5,7 +5,7 @@ import { EmailValidator } from '../../validators/email';
 import { AuthProvider } from '../../providers/auth';
 
 import { File } from '@ionic-native/file';
-import { Transfer, TransferObject } from '@ionic-native/transfer';
+// import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
 
@@ -27,7 +27,7 @@ export class PerfilPage {
     public navParams: NavParams,
     public platform: Platform,
     private camera: Camera,
-    private transfer: Transfer,
+    // private transfer: Transfer,
     private file: File,
     private filePath: FilePath,
     public toastCtrl: ToastController,

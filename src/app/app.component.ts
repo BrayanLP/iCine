@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
-import { DoctoresPage } from '../pages/doctores/doctores';
+// import { DoctoresPage } from '../pages/doctores/doctores';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { InfoPage } from '../pages/info/info';
 // import { SignupPage } from '../pages/signup-page/signup-page';
