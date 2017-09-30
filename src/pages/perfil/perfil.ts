@@ -69,13 +69,13 @@ export class PerfilPage {
       title: 'Select Image Source',
       buttons: [
         {
-          text: 'Load from Library',
+          text: 'Cargar de mi biblioteca',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
-          text: 'Use Camera',
+          text: 'Usar Camara',
           handler: () => {
             this.takePicture(this.camera.PictureSourceType.CAMERA);
           }
