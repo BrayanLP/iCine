@@ -10,6 +10,7 @@ import { RegistrarCitaPage } from '../pages/registrar-cita/registrar-cita';
 import { DoctoresPage } from '../pages/doctores/doctores';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { InfoPage } from '../pages/info/info';
+import { HistorialPage } from '../pages/historial/historial';
 
 
 import { LoginPage } from '../pages/login/login';
@@ -46,7 +47,8 @@ const config = {
     RegistrarCitaPage,
     DoctoresPage,
     PerfilPage,
-    InfoPage
+    InfoPage,
+    HistorialPage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ const config = {
     RegistrarCitaPage,
     DoctoresPage,
     PerfilPage,
-    InfoPage
+    InfoPage,
+    HistorialPage
   ],
   providers: [
     StatusBar,

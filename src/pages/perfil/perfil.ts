@@ -34,11 +34,12 @@ export class PerfilPage {
     public actionSheetCtrl: ActionSheetController
 
   ){
+    let controlEmail = this.formBuilder.control({value:'', disabled: true},Validators.compose( [Validators.required,  EmailValidator.isValid] ));
     this.perfilForm = formBuilder.group({
       n: ['', Validators.compose( [Validators.required]) ],
       ap: ['', Validators.compose( [Validators.required]) ],
-      am: ['', Validators.compose( [Validators.required]) ],
-      c: ['', Validators.compose( [Validators.required,  EmailValidator.isValid] )],
+      am: ['',Validators.compose( [Validators.required]) ],
+      c: controlEmail,
       t: ['', Validators.compose( [Validators.required]) ],
       g: ['', Validators.compose( [Validators.required]) ]
     });
@@ -150,5 +151,35 @@ export class PerfilPage {
       return cordova.file.dataDirectory + img;
     }
 
+  }
+  actualizar(){
+    var obj = {};
+    let n = this.perfilForm.value.n;
+    let am = this.perfilForm.value.am;
+    let ap = this.perfilForm.value.ap;
+    let c = this.perfilForm.value.c;
+    let t = this.perfilForm.value.t;
+    let g = this.perfilForm.value.g;
+
+    if(
+      n != '' && n != undefined &&
+      am != '' && am != undefined &&
+      ap != '' && ap != undefined &&
+      t != '' && t != undefined &&
+      g != '' && g != undefined
+    ){
+      obj ={
+        'n':n,
+        'am':am,
+        'ap':ap,
+        't':t,
+        'g':g
+      }
+      this.authData.setPerfil(obj);
+
+    }
+    else{
+      console.log("Ocurrio un problema");
+    }
   }
 }

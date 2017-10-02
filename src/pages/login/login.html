@@ -8,17 +8,17 @@
 </ion-header> -->
 <ion-content padding>
 	<div text-center margin-top>
-		<img width="100" src="assets/iCime.png"/>
+		<img width="100" src="assets/logo_icime.svg"/>
 	</div>
 	<div padding-left padding-right>
 		<h4 class="icolor3 no-border" margin-top>Iniciar Sesión</h4>
 		<form [formGroup]="loginForm" (submit)="loginUser()" novalidate >
-			<ion-list no-padding> 
+			<ion-list no-padding>
 				<ion-item no-padding>
 					<ion-label floating>Correo Electrónico</ion-label>
 					<ion-input type="email" formControlName="email" [class.invalid]="!loginForm.controls.email.valid  &&  loginForm.controls.email.dirty"></ion-input>
 				</ion-item>
-				<ion-item class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+				<ion-item no-padding class="error-message" *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
 					<p>
 						El correo electrónico no es valido
 					</p>
@@ -49,7 +49,7 @@
 		<ion-item no-padding  class="no-border">
 			<h6 text-center padding-top>
 				¿No tienes una Cuenta?<br>
-				<a (click)="createAccount()" >Registrate Ahora </a> 
+				<a (click)="createAccount()" >Registrate Ahora </a>
 			</h6>
 		</ion-item>
 	</div>

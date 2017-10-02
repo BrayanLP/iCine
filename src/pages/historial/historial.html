@@ -1,0 +1,12 @@
+<ion-content padding>
+    <div *ngFor="let cita of citas">
+        Doctor: {{cita.d}}<br>
+        Especialidad: {{cita.e}}<br>
+        Fecha: {{cita.f}}<br>
+        Hora: {{cita.h}}<br>
+        <hr>
+    </div>
+    <div *ngIf="citas.length < 1">
+        La lista esta vacia
+    </div>
+</ion-content>

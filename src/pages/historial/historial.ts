@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-// import { NavParams, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth';
-// import { Keyobject } from '../../pipes/objetos';
 
-
+@IonicPage()
 @Component({
-  selector: 'page-citas',
-  templateUrl: 'citas.html',
+  selector: 'page-historial',
+  templateUrl: 'historial.html',
 })
-export class CitasPage {
-
+export class HistorialPage {
   public citas = [];
-  // private citas: number [] = number [];
   constructor(
-    public authData: AuthProvider
+    public navCtrl: NavController,
+    public authData : AuthProvider,
+    public navParams: NavParams
   ){
     this.getCitas();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Citas');
+    console.log('ionViewDidLoad HistorialPage');
   }
   getCitas(){
     this.authData.getUsuarioCitas().on('value', res => {
@@ -28,8 +27,9 @@ export class CitasPage {
         Object.keys(res.val()).forEach(element => {
           this.authData.getCitasId(element).on('value', response => {
             let res = response.val();
+            console.log(res);
             if(res != null ){
-              if(res.s === "pendiente"){
+              if(res.s === "finalizado"){
                 this.citas.push(res);
               }
             }
@@ -44,9 +44,6 @@ export class CitasPage {
         console.log("citas vacias");
       }
     });
-  }
-  removeCita(id){
-
   }
 
 }

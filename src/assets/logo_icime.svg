@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+	<!ENTITY ns_vars "http://ns.adobe.com/Variables/1.0/">
+	<!ENTITY ns_imrep "http://ns.adobe.com/ImageReplacement/1.0/">
+	<!ENTITY ns_sfw "http://ns.adobe.com/SaveForWeb/1.0/">
+	<!ENTITY ns_custom "http://ns.adobe.com/GenericCustomNamespace/1.0/">
+	<!ENTITY ns_adobe_xpath "http://ns.adobe.com/XPath/1.0/">
+]>
+<svg version="1.1" id="Layer_1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="810.04px" height="840.264px" viewBox="0 0 810.04 840.264" enable-background="new 0 0 810.04 840.264"
+	 xml:space="preserve">
+<metadata>
+	<sfw  xmlns="&ns_sfw;">
+		<slices></slices>
+		<sliceSourceBounds  height="833.168" width="800" y="-899.168" x="95.96" bottomLeftOrigin="true"></sliceSourceBounds>
+	</sfw>
+</metadata>
+<g>
+	<title>CyberGuard</title>
+	<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="805" y1="419.584" x2="5.0005" y2="419.584">
+		<stop  offset="0" style="stop-color:#50BEED"/>
+		<stop  offset="0.1656" style="stop-color:#4BAFE3"/>
+		<stop  offset="0.5095" style="stop-color:#438CCB"/>
+		<stop  offset="1" style="stop-color:#375CAA"/>
+		<a:midPointStop  offset="0" style="stop-color:#50BEED"/>
+		<a:midPointStop  offset="0.5432" style="stop-color:#50BEED"/>
+		<a:midPointStop  offset="1" style="stop-color:#375CAA"/>
+	</linearGradient>
+	<path fill="url(#SVGID_1_)" d="M408.134,833.812l-3.013,2.355l-3.096-2.355c-50.235-37.65-97.626-78.955-141.787-123.576
+		c-17.838-18.133-34.468-36.246-49.892-54.336l52.098-52.098l233.023-233.007c14.494-14.274,37.815-14.096,52.089,0.398
+		c14.118,14.334,14.121,37.344,0.009,51.683L312.271,658.172c29.327,29.822,60.281,58,92.719,84.404
+		c146.94-120.117,245.998-255.713,294.919-403.757c29.769-89.903,32.354-160.13,31.104-194.839
+		c-57.137-35.385-175.937-67.296-320.077-67.296c-129.916,0-248.634,25.868-332.132,71.626
+		c-0.955,35.878,2.585,104.277,31.614,191.529c2.437,7.377,4.939,14.655,7.738,21.949l142.742-142.742
+		c14.023-14.75,37.349-15.339,52.098-1.316c14.75,14.022,15.339,37.348,1.316,52.097c-0.428,0.45-0.866,0.889-1.316,1.316
+		L149.622,434.518l-54.6,54.634c-12.976-24.172-24.09-47.752-33.673-70.524C-14.113,239.037,7.473,105.647,9.021,104.627
+		C114.912,33.066,266.348,3,410.935,3c165.727,0,322.316,39.649,390.237,101.627C803.345,106.734,864.219,490.107,408.134,833.812z
+		 M510.626,277.142c14.387-14.386,14.387-37.711,0-52.097c-14.386-14.387-37.712-14.387-52.098,0L179.236,504.254l-53.349,53.416
+		c12.892,20.186,27.12,40.752,42.812,61.466l52.476-52.542L510.626,277.142z"/>
+</g>
+</svg>

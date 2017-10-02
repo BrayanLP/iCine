@@ -36,16 +36,18 @@ $app-direction: ltr;
 $colors: (
   primary:    #4CBEEF,
   secondary:  #325AB1,
-  danger:     #f53d3d,
-  light:      #9f9f9f,
+  danger:     #f53e3e,
+  light:      #717171,
   dark:       #222,
   colorA: #4CBEEF,
-  colorB: #325AB1
+  colorB: #325AB1,
+  valid: #04cc46
 );
 
-$colorC: #9f9f9f;
+// $colorC: #9f9f9f;
 // $text-input-highlight-color-valid: $colorC !important;
-$text-input-placeholder-color: $colorC !important;
+$text-input-placeholder-color: color($colors, light) !important;
+$text-input-highlight-color-valid: color($colors, valid) !important;
 // $text-input-ios-background-color: color($colors, colorB) !important;
 $label-ios-text-color: color($colors, light) !important;
 // $label-md-text-color:  color($colors, light) !important;
@@ -55,13 +57,13 @@ div::-webkit-scrollbar {
   width:0;
   background: rgba(0,0,0,0);
 }
- 
+
 div::-webkit-scrollbar-track {
   border:none;
   width:0;
   background: rgba(0,0,0,0);
 }
- 
+
 div::-webkit-scrollbar-thumb {
   border:none;
   width:0;
@@ -89,13 +91,19 @@ div::-webkit-scrollbar-thumb {
 .no-border {
 	border: 1px solid transparent !important;
 	.item-inner{
-		border: 1px solid transparent !important 
+		border: 1px solid transparent !important
 	}
 }
 .icolor3, input, h6{
 	color: color($colors, light) !important;
 }
-
+ion-item.error-message{
+  background: color($colors, danger);
+}
+ion-item.error-message p{
+  color: #ffffff;
+  padding: 0 1rem;
+}
 
 
 // App Windows Variables

@@ -68,5 +68,8 @@ import firebase from 'firebase/app';
     logoutUser(): firebase.Promise<any> {
       return this.afAuth.auth.signOut();
     }
+    setPerfil(obj){
+      return this.afDB.database.ref('usuarios').child(this.afAuth.auth.currentUser.uid).update(obj);
+    }
 
   }
