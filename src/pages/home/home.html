@@ -3,21 +3,19 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>HOLA</ion-title>
+    <ion-title>Mis citas</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
   <!-- <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
   </p>
 
   <button ion-button secondary menuToggle>Toggle Menu</button> -->
-  <ion-tabs>
-    <ion-tab [root]="tab1Root" tabTitle="Citas programadas" tabIcon="calendar"></ion-tab>
-    <ion-tab [root]="tab2Root" tabTitle="Historial de citas" tabIcon="calendar"></ion-tab>
+  <ion-tabs tabsPlacement="top" primary>
+    <ion-tab [root]="tab1Root" tabTitle="Citas programadas" ></ion-tab>
+    <ion-tab [root]="tab2Root" tabTitle="Historial de citas" ></ion-tab>
     <!-- <ion-tab [root]="tab2Root" tabTitle="Speakers" tabIcon="contacts"></ion-tab> -->
     <!-- <ion-tab [root]="tab3Root" tabTitle="Map" tabIcon="map"></ion-tab> -->
     <!-- <ion-tab [root]="tab4Root" tabTitle="About" tabIcon="information-circle"></ion-tab> -->

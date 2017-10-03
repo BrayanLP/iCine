@@ -14,3 +14,38 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.iBackground{
+  background: $degradadoTopBottom;
+}
+ion-list {
+  button{
+    background-color: transparent !important;
+    color: #ffffff !important;
+    .item-inner{
+      border-bottom: 1px solid transparent !important;
+      ion-label{
+        padding: 3px 0;
+      }
+    }
+  }
+
+}
+.iText{
+  color: color($colors, text);
+  font-size: 16px;
+}
+img.radius{
+  border-radius: 50%;
+}
+.title_name{
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+  font-size: 18px;
+}
+.align-center{
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 100%;
+}

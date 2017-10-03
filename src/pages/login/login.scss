@@ -1,3 +1,15 @@
 page-login {
-
+  .login-bg{
+    background: url('../../assets/fondo.png');
+  }
+  ion-item{
+    background: transparent !important;
+  }
+  .iWhite, input, h6, ion-label{
+    color: #ffffff !important;
+  }
+  .ibuttonWhite{
+    background: #ffffff !important;
+    color: color($colors, primary);
+  }
 }

@@ -10,9 +10,9 @@
 			<ion-grid>
 				<ion-row>
 					<h5 class="icolor3 no-border" no-padding>Datos de Cuenta</h5>
-					<ion-item no-padding> 
-						<ion-label floating> 
-							<ion-icon name="mail"></ion-icon> 
+					<ion-item no-padding>
+						<ion-label floating>
+							<ion-icon name="mail"></ion-icon>
 							Correo electrónico
 						</ion-label>
 						<ion-input type="email" formControlName="email"  [class.invalid]="!signupForm.controls.email.valid  &&  signupForm.controls.email.dirty"></ion-input>
@@ -21,11 +21,11 @@
 						<p>
 							El correo electrónico no es valido.
 						</p>
-					</ion-item> 
+					</ion-item>
 
-					<ion-item no-padding> 
-						<ion-label floating> 
-							<ion-icon name="md-key"></ion-icon> 
+					<ion-item no-padding>
+						<ion-label floating>
+							<ion-icon name="md-key"></ion-icon>
 							Contraseña
 						</ion-label>
 						<ion-input type="password" formControlName="password" [class.invalid]="!signupForm.controls.password.valid  &&  signupForm.controls.password.dirty"></ion-input>
@@ -34,8 +34,8 @@
 						<p>
 							Contraseña debe ser mayor a 6 dígitos
 						</p>
-					</ion-item> 
-					
+					</ion-item>
+
 					<h5 class="icolor3 no-border" no-padding>Datos Personales</h5>
 					<ion-item no-padding>
 						<ion-label floating>
@@ -48,11 +48,11 @@
 						<p>
 							Solo se permite letras.
 						</p>
-					</ion-item> 
+					</ion-item>
 
 					<ion-item no-padding>
-						<ion-label floating> 
-							<ion-icon name="md-male"></ion-icon>   
+						<ion-label floating>
+							<ion-icon name="md-male"></ion-icon>
 							Apellido paterno
 						</ion-label>
 						<ion-input type="text" formControlName="apaterno"  [class.invalid]="!signupForm.controls.apaterno.valid  &&  signupForm.controls.apaterno.dirty"></ion-input>
@@ -61,11 +61,11 @@
 						<p>
 							Solo se permite letras.
 						</p>
-					</ion-item> 
+					</ion-item>
 
 					<ion-item no-padding>
 						<ion-label floating>
-							<ion-icon name="md-female"></ion-icon> 
+							<ion-icon name="md-female"></ion-icon>
 							Apellido materno
 						</ion-label>
 						<ion-input type="text" formControlName="amaterno"  [class.invalid]="!signupForm.controls.amaterno.valid  &&  signupForm.controls.amaterno.dirty"></ion-input>
@@ -74,7 +74,7 @@
 						<p>
 							Solo se permite letras.
 						</p>
-					</ion-item> 
+					</ion-item>
 
 					<ion-item col-6 no-padding margin-top>
 					    <ion-label>Masculino</ion-label>
@@ -87,10 +87,10 @@
 					<!-- <ion-item no-padding>
 						<ion-label floating>Telefono</ion-label>
 						<ion-input type="tel"></ion-input>
-					</ion-item> --> 
+					</ion-item> -->
 			  		<ion-item no-padding>
 					  	<ion-label floating>
-					  		<ion-icon name="md-calendar"></ion-icon> 
+					  		<ion-icon name="md-calendar"></ion-icon>
 					  		Fecha Nacimiento
 					  	</ion-label>
 					  	<ion-datetime displayFormat="MM/DD/YYYY" formControlName="fecha"  [class.invalid]="!signupForm.controls.fecha.valid  &&  signupForm.controls.fecha.dirty"></ion-datetime>

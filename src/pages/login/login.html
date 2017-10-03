@@ -6,12 +6,12 @@
     <ion-title>HOLA</ion-title>
   </ion-navbar>
 </ion-header> -->
-<ion-content padding>
+<ion-content class="login-bg" padding>
 	<div text-center margin-top>
-		<img width="100" src="assets/logo_icime.svg"/>
+		<img width="90px" src="../../assets/logo_icime_white.svg"/>
 	</div>
 	<div padding-left padding-right>
-		<h4 class="icolor3 no-border" margin-top>Iniciar Sesión</h4>
+		<h4 class="iWhite no-border" margin-top>Iniciar Sesión</h4>
 		<form [formGroup]="loginForm" (submit)="loginUser()" novalidate >
 			<ion-list no-padding>
 				<ion-item no-padding>
@@ -36,12 +36,12 @@
 			<ion-grid no-padding>
 				<ion-row margin-bottom>
 					<ion-col col-12>
-						<a class="icolor3"  (click)="goToResetPassword()"  >¿Olvidaste tu contraseña?</a>
+						<a class="iWhite"  (click)="goToResetPassword()"  >¿Olvidaste tu contraseña?</a>
 					</ion-col>
 				</ion-row>
 				<ion-row no-padding>
 					<ion-col col-12>
-						<button ion-button  round block class="ibutton" type="submit"  [disabled]="!loginForm.valid" >Ingresar</button>
+						<button ion-button  round block class="ibuttonWhite" type="submit">Iniciar sesión</button>
 					</ion-col>
 				</ion-row>
 			</ion-grid>
@@ -49,7 +49,7 @@
 		<ion-item no-padding  class="no-border">
 			<h6 text-center padding-top>
 				¿No tienes una Cuenta?<br>
-				<a (click)="createAccount()" >Registrate Ahora </a>
+				<b><a class="iWhite" (click)="createAccount()" >Registrate Ahora </a></b>
 			</h6>
 		</ion-item>
 	</div>

@@ -1,4 +1,4 @@
-<ion-content padding>  
+<ion-content padding>
     <div *ngFor="let cita of citas">
         Doctor: {{cita.d}}<br>
         Especialidad: {{cita.e}}<br>
@@ -6,7 +6,17 @@
         Hora: {{cita.h}}<br>
         <hr>
     </div>
-    <div *ngIf="citas.length < 1">
-        La lista esta vacia
+    <div class="align-center" text-center *ngIf="citas.length < 1">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/triste.svg" width="80px" alt="">
+            <p class="iText" text-center>Lo sentimos no tiene citas<br> programadas en este momento</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
     </div>
+    <ion-footer text-center>
+      <button ion-button  round class="ibutton">Reservar Cita Ahora</button>
+    </ion-footer>
 </ion-content>
