@@ -1,10 +1,32 @@
 <ion-content padding>
-    <div *ngFor="let cita of citas">
-        Doctor: {{cita.d}}<br>
+    <div *ngFor="let cita of citas; let i = index">
+      <p class="ibg">{{citas[i][0].f}}</p>
+      <div *ngFor="let c of cita">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              <b>{{c.h}}</b>
+            </ion-col>
+            <ion-col col-2>
+                <img class="radius" [src]="c.doctor.f">
+            </ion-col>
+            <ion-col col-8>
+              <h6 no-padding no-margin><b>{{c.e}}</b></h6>
+              Doctor(a): <b>{{c.doctor.n}}</b><br>
+              Pendiente de pagar
+              <hr>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <!-- {{cita.f}} -->
+
+
+        <!-- Doctor: {{cita.d}}<br>
         Especialidad: {{cita.e}}<br>
         Fecha: {{cita.f}}<br>
-        Hora: {{cita.h}}<br>
-        <hr>
+        Hora: <br>
+        <hr> -->
     </div>
     <div class="align-center" text-center *ngIf="citas.length < 1">
       <ion-grid>
@@ -16,7 +38,7 @@
         </ion-row>
       </ion-grid>
     </div>
-    <ion-footer text-center>
+    <ion-footer  class="bottom_bar" text-center>
       <button ion-button  round class="ibutton">Reservar Cita Ahora</button>
     </ion-footer>
 </ion-content>

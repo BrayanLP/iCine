@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 // import { AngularFire } from 'angularfire2';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import firebase from 'firebase/app';
+import { AngularFireDatabase } from 'angularfire2/database';
+// import firebase from 'firebase/app';
+import { Observable } from 'rxjs/Observable';
 /*
   Generated class for the Auth provider.
 
@@ -11,16 +12,16 @@ import firebase from 'firebase/app';
   	*/
   @Injectable()
   export class AuthProvider {
-    especialidades: FirebaseListObservable<any[]>;
+    especialidades: Observable<any[]>;
   	constructor(public afAuth: AngularFireAuth, public afDB: AngularFireDatabase) {
   	}
-  	loginUser(newEmail: string, newPassword: string): firebase.Promise<any> {
+  	loginUser(newEmail: string, newPassword: string) {
   		return this.afAuth.auth.signInWithEmailAndPassword(newEmail, newPassword);
   	}
-  	resetPassword(email: string): firebase.Promise<any> {
+  	resetPassword(email: string) {
 	  	return this.afAuth.auth.sendPasswordResetEmail(email);
   	}
-  	signupUser(newEmail: string, newPassword: string): firebase.Promise<any> {
+  	signupUser(newEmail: string, newPassword: string) {
   	  return this.afAuth.auth.createUserWithEmailAndPassword(newEmail, newPassword);
   	}
     getUser(){
@@ -65,11 +66,23 @@ import firebase from 'firebase/app';
       return this.afDB.database.ref('citas');
     }
 
-    logoutUser(): firebase.Promise<any> {
+    logoutUser() {
       return this.afAuth.auth.signOut();
     }
     setPerfil(obj){
       return this.afDB.database.ref('usuarios').child(this.afAuth.auth.currentUser.uid).update(obj);
+    }
+
+    get(url){
+      return this.afDB.database.ref(url);
+    }
+
+    update(obj){
+      return this.afDB.database.ref().update(obj);
+    }
+
+    key(){
+      return this.afDB.database.ref().push().key;
     }
 
   }

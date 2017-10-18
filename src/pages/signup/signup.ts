@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
-import { 
-  IonicPage, 
-  NavController, 
-  LoadingController, 
-  Loading, 
+import { Component,ViewChild } from '@angular/core';
+import {
+  IonicPage,
+  NavController,
+  LoadingController,
+  Loading,
   AlertController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth';
@@ -11,19 +11,26 @@ import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
 import { LetrasValidator } from '../../validators/letras';
 
+import { Slides } from 'ionic-angular';
+
 @IonicPage()
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
 })
 export class SignupPage {
+  @ViewChild(Slides) slides: Slides;
   public signupForm:FormGroup;
-  public loading:Loading; 
+  public loading:Loading;
   // emailRegex: any = '/^[a-zA-Z\_\- ]*$/';
-   
-  constructor(public nav: NavController, public authData: AuthProvider, 
-    public formBuilder: FormBuilder, public loadingCtrl: LoadingController, 
-    public alertCtrl: AlertController) {
+
+  constructor(
+    public nav: NavController,
+    public authData: AuthProvider,
+    public formBuilder: FormBuilder,
+    public loadingCtrl: LoadingController,
+    public alertCtrl: AlertController
+  ){
 
     // var obj = [{ email: this.signupForm.value.email, amat: this.signupForm.value.amaterno, apat: this.signupForm.value.aparterno, naci: this.signupForm.value.fecha, nom: this.signupForm.value.nombre, full: this.signupForm.value.nombre +" "+ this.signupForm.value.apaterno }];
     this.signupForm = formBuilder.group({
@@ -36,6 +43,11 @@ export class SignupPage {
       fecha: ['', Validators.compose([Validators.required])]
 
     });
+    // this.slides.lockSwipes(true);
+  }
+  ngAfterViewInit() {
+    this.slides.lockSwipes(true);
+    // this.slides.freeMode = true;
   }
 
   /**
@@ -51,7 +63,7 @@ export class SignupPage {
     let aPaterno = this.signupForm.value.apaterno;
     let aMaterno = this.signupForm.value.amaterno;
     let gene = this.signupForm.value.gene;
-    let fecha = this.signupForm.value.fecha; 
+    let fecha = this.signupForm.value.fecha;
     let rol = "paciente";
     this.loading = this.loadingCtrl.create({
       dismissOnPageChange: true,
@@ -60,35 +72,35 @@ export class SignupPage {
     if (!this.signupForm.valid){
       // console.log(this.signupForm.value);
       if(
-        email === "" && 
+        email === "" &&
         password === "" &&
         nombre === "" &&
         aPaterno === "" &&
         aMaterno === "" &&
         gene === "" &&
-        fecha === ""){ 
+        fecha === ""){
         this.mensaje('El Correo electrónico, la Contraseña, Nombre, Apellido Paterno y Materno, Genero y Fecha de Nacimiento son requeridos');
       }
       else if(this.signupForm.value.email === ""){
         this.mensaje('El correo electrónico es requerido');
       }
-      else if(this.signupForm.value.password === ""){ 
-        this.mensaje('La contraseña es requerida');  
+      else if(this.signupForm.value.password === ""){
+        this.mensaje('La contraseña es requerida');
       }
-      else if(this.signupForm.value.nombre === ""){ 
-        this.mensaje('El Nombre es requerido');  
+      else if(this.signupForm.value.nombre === ""){
+        this.mensaje('El Nombre es requerido');
       }
-      else if(this.signupForm.value.apaterno === ""){ 
-        this.mensaje('El Apellido Paterno es requerido');  
+      else if(this.signupForm.value.apaterno === ""){
+        this.mensaje('El Apellido Paterno es requerido');
       }
-      else if(this.signupForm.value.amaterno === ""){ 
-        this.mensaje('El Apellido Materno es requerido');  
+      else if(this.signupForm.value.amaterno === ""){
+        this.mensaje('El Apellido Materno es requerido');
       }
-      else if(this.signupForm.value.gene === ""){ 
-        this.mensaje('El Genero es requerido');  
+      else if(this.signupForm.value.gene === ""){
+        this.mensaje('El Genero es requerido');
       }
-      else if(this.signupForm.value.fecha === ""){ 
-        this.mensaje('La Fecha es requerida');  
+      else if(this.signupForm.value.fecha === ""){
+        this.mensaje('La Fecha es requerida');
       }
       else{
         this.mensaje('Error Desconocido contacte a brayanlp@grupoaizen.com');
@@ -108,19 +120,19 @@ export class SignupPage {
         };
         this.authData.setUser(obj);
         this.nav.setRoot(HomePage);
-      }, (error :any) => { 
+      }, (error :any) => {
         if(error.code === "auth/email-already-in-use"){
           this.mensaje('La dirección de correo electrónico ya está en uso por otra cuenta.');
         }
         else if(error.code === "auth/network-request-failed"){
-         this.mensaje('Se ha producido un error de red (con el tiempo de espera, la conexión interrumpida o el host inaccesible)');  
+         this.mensaje('Se ha producido un error de red (con el tiempo de espera, la conexión interrumpida o el host inaccesible)');
         }
         else{
-          this.mensaje(error.mensaje); 
+          this.mensaje(error.mensaje);
         }
       });
 
-      
+
     }
   }
   mensaje(m){
@@ -135,6 +147,12 @@ export class SignupPage {
         ]
       });
       alert.present();
-    });  
+    });
   }
-}    
+  siguiente(){
+    let siguiente = this.slides.getActiveIndex() + 1;
+    console.log(siguiente);
+    this.slides.lockSwipeToNext(false);
+    this.slides.slideTo(siguiente,500);
+  }
+}

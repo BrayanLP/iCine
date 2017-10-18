@@ -157,7 +157,7 @@ export class PerfilPage {
     let n = this.perfilForm.value.n;
     let am = this.perfilForm.value.am;
     let ap = this.perfilForm.value.ap;
-    let c = this.perfilForm.value.c;
+    // let c = this.perfilForm.value.c;
     let t = this.perfilForm.value.t;
     let g = this.perfilForm.value.g;
 

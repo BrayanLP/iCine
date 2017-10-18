@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthProvider } from '../../providers/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 import * as moment from 'moment';
-// import { FirebaseListObservable } from 'angularfire2/database';
 
 
 @Component({
@@ -23,27 +23,29 @@ export class RegistrarCitaPage {
   habilitar_hora:any;
   habilitar_fecha:any;
   citaForm:FormGroup;
+  uid:any;
 
   constructor(
     public formBuilder: FormBuilder,
     public authData: AuthProvider,
+    public afAuth: AngularFireAuth
   ) {
+
     this.citaForm = formBuilder.group({
       fecha: ['', Validators.compose( [Validators.required] )],
       hora: ['', Validators.compose( [Validators.required]) ],
       especialidad: ['', Validators.compose( [Validators.required]) ],
       doctor: ['', Validators.compose( [Validators.required]) ]
     });
-    // this.citaForm.value.fecha = new Date().toISOString();
-    // console.log(this.citaForm.value.fecha);
-    // this.minFecha = "2017-08-17";
-    this.getDate();
-    this.getEspecialidades();
-    // this.getDoctores();
 
-    // this.especialidades = [];
-
-
+    this.afAuth.authState.subscribe( auth => {
+      if(auth){
+        console.log(auth.uid);
+        this.uid = auth.uid;
+        this.getDate();
+        this.getEspecialidades();
+      }
+    });
   }
 
   ionViewDidLoad() {
@@ -55,15 +57,44 @@ export class RegistrarCitaPage {
     let d = this.citaForm.value.doctor;
     let f = this.citaForm.value.fecha;
     let h = this.citaForm.value.hora;
+
+    let anio  = f.split('-')[0];
+    let mes   = f.split('-')[1];
+    let dia   = f.split('-')[2];
+
+    let res = {};
+    let key = this.authData.key();
+    this.authData.get('/doctores/'+d).on('value', snap =>{
+      let data = snap.val();
+      res = {
+        'c': d,
+        'n': data.n +' '+ data.ap,
+        'f': ''
+      }
+    })
+    // console.log(res);
     obj ={
-      'd':d,
+      'doctor': res,
       'f':f,
       'e':e,
       'h':h,
-      's':true
+      's':'pendiente'
     }
-    console.log(obj);
-    this.authData.registrarCita('citas',obj);
+    let update = {};
+    this.authData.get('/horarios/'+d+'/'+anio+'/'+mes+'/'+dia+'/'+h+'/'+'cupon').on('value', snap =>{
+      let cupon = snap.val();
+      if(cupon === 1){
+        update['/horarios/'+d+'/'+anio+'/'+mes+'/'+dia+'/'+h+'/'+'cupon'] = 0;
+        update['/citas/'+key] = obj;
+        update['/usuarios/'+this.uid+'/citas/'+key] = obj;
+        this.authData.update(update);
+        this.limpiarCampos();
+
+      }
+      else{
+        console.log("ya no se puede agregar mas citas, fue acupada por otro usuario");
+      }
+    })
   }
   getEspecialidades(){
     this.authData.getEspecialidades().on('value', data => {
@@ -84,6 +115,7 @@ export class RegistrarCitaPage {
   getDoctores(responde_especialidad, responde_hora){
     this.authData.getDoctores().on('value', data => {
       let response:any = data.val();
+      console.log(response);
       if(response != undefined){
         let fecha = this.citaForm.value.fecha.split("-");
         let anio = fecha[0];
@@ -96,16 +128,14 @@ export class RegistrarCitaPage {
           let especialidad =  response[element].e;
           if(especialidad === responde_especialidad){
             this.authData.getHorario(id,anio,mes,dia,responde_hora).on('value', horario => {
-              let cupon:any = horario.val();
-              if(cupon != null){
+              let cupon = horario.val();
+              console.log(cupon);
+              if(cupon != null && cupon.cupon >= 1){
                   let obj = {
                     id: id,
                     nombre: nombre
                   }
                   this.doctores.push(obj);
-              }
-              else{
-                console.log("que paso aqui?");
               }
             })
           }
@@ -170,6 +200,14 @@ export class RegistrarCitaPage {
       this.getDoctores(e,response);
 
     }
+  }
+  limpiarCampos(){
+    this.citaForm.setValue({
+      fecha: '',
+      hora: '',
+      especialidad: '',
+      doctor: ''
+    })
   }
   // FiltroDoctor(response){
   //   console.log(response);
