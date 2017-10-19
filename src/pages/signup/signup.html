@@ -14,10 +14,11 @@
           <ion-slide>
             <ion-row>
               <h5 class="icolor3 no-border" no-padding>Datos Personales</h5>
+
               <ion-item no-padding>
                 <ion-label floating>
                   <ion-icon name="ios-person"></ion-icon>
-                  Nombre completo
+                  Nombre
                 </ion-label>
                 <ion-input type="text" formControlName="nombre" [class.invalid]="!signupForm.controls.nombre.valid  &&  signupForm.controls.nombre.dirty"></ion-input>
               </ion-item>
@@ -27,18 +28,18 @@
                 </p>
               </ion-item>
 
-              <ion-item col-6 no-padding>
+              <ion-item no-padding>
                 <ion-label floating>
                   <ion-icon name="md-male"></ion-icon>
-                  Ap. paterno
+                  Apellido paterno
                 </ion-label>
                 <ion-input type="text" formControlName="apaterno" [class.invalid]="!signupForm.controls.apaterno.valid  &&  signupForm.controls.apaterno.dirty"></ion-input>
               </ion-item>
 
-              <ion-item col-6 no-padding>
+              <ion-item no-padding>
                 <ion-label floating>
                   <ion-icon name="md-female"></ion-icon>
-                  A. materno
+                  Apellido materno
                 </ion-label>
                 <ion-input type="text" formControlName="amaterno" [class.invalid]="!signupForm.controls.amaterno.valid  &&  signupForm.controls.amaterno.dirty"></ion-input>
               </ion-item>
@@ -53,20 +54,24 @@
                   <ion-icon name="md-calendar"></ion-icon>
                   Fecha Nacimiento
                 </ion-label>
-                <ion-datetime displayFormat="MM/DD/YYYY" formControlName="fecha" [class.invalid]="!signupForm.controls.fecha.valid  &&  signupForm.controls.fecha.dirty"></ion-datetime>
+                <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="fecha" [class.invalid]="!signupForm.controls.fecha.valid  &&  signupForm.controls.fecha.dirty"></ion-datetime>
               </ion-item>
 
-              <ion-item col-6 no-padding margin-top>
+              <ion-item col-6 no-padding margin-top class="no-border">
                 <ion-label>Masculino</ion-label>
                 <ion-radio checked="true" value="m"></ion-radio>
               </ion-item>
 
-              <ion-item col-6 no-padding margin-top>
+              <ion-item col-6 no-padding margin-top class="no-border">
                 <ion-label>Femenino</ion-label>
                 <ion-radio value="f"></ion-radio>
               </ion-item>
 
-              <a ion-button  round full (click)="siguiente()">Siguiente</a>
+              <ion-item no-margin no-padding text-center class="no-border">
+                <a ion-button margin-top right clear class="text-transform" disabled="true" (click)="anterior()">Anterior</a>
+                <a ion-button margin-top round right class="ibutton" (click)="siguiente()">Siguiente</a>
+              </ion-item>
+
             </ion-row>
           </ion-slide>
 
@@ -101,16 +106,21 @@
                 Contraseña debe ser mayor a 6 dígitos
               </p>
             </ion-item>
+            <ion-item no-margin no-padding text-center class="no-border">
+              <a ion-button margin-top round right class="ibutton"  (click)="anterior()">Anterior</a>
+              <a ion-button margin-top clear right class="text-transform" disabled="true">Siguiente</a>
+            </ion-item>
+            <ion-row margin-top>
+              <ion-col col-12 no-padding>
+
+                <button ion-button  round full class="ibutton" type="submit" [disabled]="!signupForm.valid" >Registrar</button>
+              </ion-col>
+            </ion-row>
           </ion-slide>
 
 
         </ion-slides>
-				<ion-row margin-top>
-					<ion-col col-12 no-padding>
 
-						<button ion-button  round full class="ibutton" type="submit" [disabled]="!signupForm.valid" >Registrar</button>
-					</ion-col>
-				</ion-row>
 			</ion-grid>
 		</ion-list>
 	</form>

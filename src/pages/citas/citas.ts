@@ -11,6 +11,7 @@ import { AuthProvider } from '../../providers/auth';
 export class CitasPage {
 
   public citas = [];
+  public fechas = [];
   // private citas: number [] = number [];
   constructor(
     public authData: AuthProvider
@@ -34,26 +35,39 @@ export class CitasPage {
             if(res != null ){
               if(res.s === "pendiente"){
                 if(this.citas.length > 0){
-                  for (var i = 0; i < this.citas.length; i++) {
-                      var resultado = this.citas[i][i];
-                      if(resultado != undefined){
-                        if(resultado.f === res.f){
+                  // for (var i = 0; i < this.citas.length; i++) {
+                  //   // console.log(i,i);
+                  //   // var result = this.citas[i];
+                  //   // console.log(result);
+                  //   for (var j = 0; j < this.citas[i].length; j++) {
+                  //     var resultado = this.citas[i][j];
+                  //     // console.log(resultado);
+                      // if(resultado != undefined){
+                        // if(resultado.f === res.f){
+                          // this.fechas.push(res.f);
+                          // array_temp = res;
+                          // console.log("igual -- ",res);
+                          // console.log(resultado.f, res.f);
+                          // this.citas[i].push(array_temp);
+                          // console.log(this.citas);
+                        // }
+                        // else{
                           array_temp = res;
-                          this.citas[i].push(array_temp);
-                        }
-                        else{
-                          array_temp = [res];
+                          // console.log("otro -- ",res);
                           this.citas.push(array_temp);
-                        }
-                      }
-                  }
+                          // this.fechas.push(res.f);
+                        // }
+                      // }
+                  //   }
+                  // }
                 }
                 else{
                   console.log("entre porque no exitia ninguna cita");
-                  citas_temp = [res];
-                  console.log(citas_temp);
+                  citas_temp = res;
+                  // console.log(citas_temp);
                   this.citas.push(citas_temp);
-                  console.log(this.citas);
+                  // this.fechas.push(res.f);
+                  // console.log(this.fechas);
                 }
               }
             }

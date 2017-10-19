@@ -155,29 +155,40 @@ export class RegistrarCitaPage {
     // console.log(hora);
   }
 
-  onChange(date){
+  cambioFecha(fecha){
     let hoy = moment().format().substring(0,10);
-    if( hoy === date){
-      console.log(hoy, date);
+    let esp = this.citaForm.value.especialidad;
+    let hor = this.citaForm.value.hora;
+    this.logicaFecha(fecha,esp,hor);
+    if( hoy === fecha){
       this.minHora = moment().format().substring(0,16);
-      this.citaForm.value.hora = "";
-      this.habilitar_hora = false;
-      // alert("no hay cupos para hoy");
     }
     else{
       this.minHora = "2010-09-26T18:47";
-      this.habilitar_hora = true;
 
     }
-    // this.minDate = res;
-    // console.log(res);
   }
+  logicaFecha(fecha,esp,hor){
+    if(
+      fecha != '' &&
+      hor != '' &&
+      esp != ''
+    ){
+      console.log("obteniendo fecha");
+      this.getDoctores(esp, hor);
+    }
+  }
+
   cambioEspecialidad(e){
     console.log(e);
     if(e != undefined){
       this.habilitar_fecha = true;
-      if(this.citaForm.value.doctor != undefined){
-        // this.getDoctores(e);
+      if(
+        this.citaForm.value.fecha != '' &&
+        this.citaForm.value.hora != ''
+      ){
+        this.getDoctores(e, this.citaForm.value.hora);
+        // this.citaForm.setValue({doctor: ''});
       }
       else{
         console.log("no pasa nada");

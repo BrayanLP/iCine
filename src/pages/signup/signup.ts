@@ -11,6 +11,9 @@ import { HomePage } from '../home/home';
 import { EmailValidator } from '../../validators/email';
 import { LetrasValidator } from '../../validators/letras';
 
+import { FirebaseApp } from 'angularfire2';
+import 'firebase/storage';
+
 import { Slides } from 'ionic-angular';
 
 @IonicPage()
@@ -22,6 +25,7 @@ export class SignupPage {
   @ViewChild(Slides) slides: Slides;
   public signupForm:FormGroup;
   public loading:Loading;
+  user_image:string;
   // emailRegex: any = '/^[a-zA-Z\_\- ]*$/';
 
   constructor(
@@ -29,7 +33,8 @@ export class SignupPage {
     public authData: AuthProvider,
     public formBuilder: FormBuilder,
     public loadingCtrl: LoadingController,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public fireApp: FirebaseApp
   ){
 
     // var obj = [{ email: this.signupForm.value.email, amat: this.signupForm.value.amaterno, apat: this.signupForm.value.aparterno, naci: this.signupForm.value.fecha, nom: this.signupForm.value.nombre, full: this.signupForm.value.nombre +" "+ this.signupForm.value.apaterno }];
@@ -43,6 +48,7 @@ export class SignupPage {
       fecha: ['', Validators.compose([Validators.required])]
 
     });
+
     // this.slides.lockSwipes(true);
   }
   ngAfterViewInit() {
@@ -108,18 +114,29 @@ export class SignupPage {
     } else {
       this.authData.signupUser(this.signupForm.value.email, this.signupForm.value.password)
       .then(() => {
-        let obj = {
-          c: email,
-          am: aMaterno,
-          ap: aPaterno,
-          f: fecha,
-          n: nombre,
-          n_f: nombre +" "+ aPaterno,
-          rol: rol,
-          g: gene
-        };
-        this.authData.setUser(obj);
-        this.nav.setRoot(HomePage);
+        const storageRef = this.fireApp.storage().ref().child('configuraciones/user.png');
+        storageRef.getDownloadURL().then(url => {
+          let obj = {
+            c: email,
+            am: aMaterno,
+            ap: aPaterno,
+            f: fecha,
+            n: nombre,
+            n_f: nombre +" "+ aPaterno,
+            fo: url,
+            rol: rol,
+            g: gene
+          };
+          var user = this.fireApp.auth().currentUser;
+          user.updateProfile({
+            displayName: nombre +" "+ aPaterno,
+            photoURL: url
+          }).then(function() {
+          }).catch(function(error) {
+          });
+          this.authData.setUser(obj);
+          this.nav.setRoot(HomePage);
+        });
       }, (error :any) => {
         if(error.code === "auth/email-already-in-use"){
           this.mensaje('La dirección de correo electrónico ya está en uso por otra cuenta.');
@@ -154,5 +171,11 @@ export class SignupPage {
     console.log(siguiente);
     this.slides.lockSwipeToNext(false);
     this.slides.slideTo(siguiente,500);
+  }
+  anterior(){
+    let anterior = this.slides.getActiveIndex() - 1;
+    console.log(anterior);
+    this.slides.lockSwipeToPrev(false);
+    this.slides.slideTo(anterior,500);
   }
 }

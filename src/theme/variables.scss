@@ -53,6 +53,9 @@ $text-input-placeholder-color: color($colors, light) !important;
 $text-input-highlight-color-valid: color($colors, valid) !important;
 // $text-input-ios-background-color: color($colors, colorB) !important;
 $label-ios-text-color: color($colors, light) !important;
+
+// $radio-md-color-off: color($colors, text) !important;
+
 // $label-md-text-color:  color($colors, light) !important;
 
 div::-webkit-scrollbar {
@@ -97,11 +100,16 @@ div::-webkit-scrollbar-thumb {
 		border: 1px solid transparent !important
 	}
 }
+
 // .icolor3, input, h6{
 // 	color: color($colors, light) !important;
 // }
 ion-item.error-message{
   background: color($colors, danger) !important;
+}
+
+.text-transform{
+  text-transform: initial !important;
 }
 ion-item.error-message p{
   color: #ffffff;

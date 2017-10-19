@@ -21,6 +21,8 @@ import { AuthProvider } from '../providers/auth';
 export class MyApp {
   rootPage:any;
   pages = [];
+  photo:string;
+  name:string;
 
   constructor(
     public platform: Platform,
@@ -66,6 +68,9 @@ export class MyApp {
     this.afAuth.authState.subscribe( user => {
       if (user) {
         this.rootPage = HomePage;
+        this.photo = user.photoURL;
+        this.name = user.displayName;
+        // console.log(user.photoURL);
       } else {
         this.rootPage = LoginPage;
       }

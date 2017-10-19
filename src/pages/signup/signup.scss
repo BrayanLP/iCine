@@ -1,3 +1,6 @@
 page-signup {
-
+  .input-wrapper {
+    color: color($colors, text);
+  }
 }
+$radio-md-color-on: color($colors, text) !important;

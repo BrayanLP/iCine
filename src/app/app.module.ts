@@ -53,7 +53,8 @@ const config = {
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{
-      monthNames: ['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre']
+      monthNames: ['Enero', 'Febrero', 'Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'],
+      monthShortNames: ['Ene', 'Feb', 'Mar','Abr','May','Jun','Jul','Ago','Set','Oct','Nov','Dic' ],
 
     }),
     AngularFireModule.initializeApp(config),

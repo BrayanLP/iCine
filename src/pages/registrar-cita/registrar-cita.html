@@ -11,30 +11,35 @@
 <ion-content padding>
 
   <form [formGroup]="citaForm" (submit)="registrarCita()" novalidate >
-    <ion-list>
-      <ion-item>
-        <ion-label>Selecciona Especialidad</ion-label>
-        <ion-select
-        formControlName="especialidad"
-        [class.invalid]="!citaForm.controls.especialidad.valid  &&  citaForm.controls.especialidad.dirty"
-        (ngModelChange)="cambioEspecialidad($event)">
-          <ion-option *ngFor="let especialidad of especialidades" [value]="especialidad.id">{{especialidad.nombre}}</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+    <ion-item>
+      <ion-label floating>
+          <ion-icon name="md-list"></ion-icon>
+          Selecciona Especialidad</ion-label>
+      <ion-select
+      formControlName="especialidad"
+      [class.invalid]="!citaForm.controls.especialidad.valid  &&  citaForm.controls.especialidad.dirty"
+      (ngModelChange)="cambioEspecialidad($event)">
+        <ion-option *ngFor="let especialidad of especialidades" [value]="especialidad.id">{{especialidad.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
 
     <ion-item>
-      <ion-label>Date</ion-label>
+      <ion-label floating>
+          <ion-icon name="md-calendar"></ion-icon>
+          Fecha de Cita</ion-label>
       <ion-datetime
       displayFormat="DD MMMM YYYY"
       [min]="minDate"
       formControlName="fecha"
-      (ngModelChange)="onChange($event)"
+      (ngModelChange)="cambioFecha($event)"
       [class.invalid]="!citaForm.controls.fecha.valid  &&  citaForm.controls.fecha.dirty">
       </ion-datetime>
     </ion-item>
+
     <ion-item>
-      <ion-label>Hora</ion-label>
+      <ion-label floating>
+          <ion-icon name="md-time"></ion-icon>
+          Hora de Cita</ion-label>
       <ion-datetime
       displayFormat="hh:mm A"
       pickerFormat="hh:mm"
@@ -46,21 +51,22 @@
       </ion-datetime>
     </ion-item>
 
-    <ion-list>
-      <ion-item>
-        <ion-label>Selecciona Doctor</ion-label>
-        <ion-select
-        formControlName="doctor"
-        [class.invalid]="!citaForm.controls.doctor.valid  &&  citaForm.controls.doctor.dirty">
-          <ion-option *ngFor="let doctor of doctores" [value]="doctor.id" >{{doctor.nombre}}</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-row no-padding>
-        <ion-col col-12>
-          <button ion-button round block class="ibutton" type="submit">Registrar Cita</button>
-        </ion-col>
-      </ion-row>
-    </ion-list>
+    <ion-item>
+      <ion-label floating>
+          <ion-icon name="md-school"></ion-icon>
+          Selecciona Doctor</ion-label>
+      <ion-select
+      formControlName="doctor"
+      [class.invalid]="!citaForm.controls.doctor.valid  &&  citaForm.controls.doctor.dirty">
+        <ion-option *ngFor="let doctor of doctores" [value]="doctor.id" >{{doctor.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-row no-padding margin-top>
+      <ion-col col-12>
+        <button ion-button round block class="ibutton" type="submit">Registrar Cita</button>
+      </ion-col>
+    </ion-row>
 
   </form>
 </ion-content>
